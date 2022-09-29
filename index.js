@@ -1,30 +1,29 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import Routes from './src/routes/route';
+import Routes from "./src/routes/route";
 
 const app = express();
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use('/users', Routes);
+app.use("/users", Routes);
 
-mongoose.connect("mongodb://localhost:27017/newcrud", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost:27017/newcrud", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 const db = mongoose.connection;
-db.on('error', () => {
-    console.log("Something went wrong!!");
-})
-db.once('open', () => {
-    console.log("Connected to the DB");
-})
+db.on("error", () => {
+  console.log("Something went wrong!!");
+});
+db.once("open", () => {
+  console.log("Connected to the DB");
+});
 
 app.listen(8080, (req, res) => {
-    console.log("serving the CRUD @ PORT 8080");
-})
+  console.log("serving the CRUD @ PORT 8080");
+});
 
-// const EventEmitter = require('events');
-// const data = new EventEmitter()
-// data.emit("test")
-
-// data.on 
+ 
 
