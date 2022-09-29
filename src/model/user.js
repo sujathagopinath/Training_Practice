@@ -6,6 +6,6 @@ const userSchema = new mongoose.Schema({
     phone: Number
 });
 
-const postUser = mongoose.model('user', userSchema);  //Accessing a model
+const postUser = mongoose.model('user', userSchema);
 
 export default postUser;
